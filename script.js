@@ -3,6 +3,24 @@ function calculate(num1, num2, operator) {
   // return the final value that you get after operating on num1 and num2 based on what the operator is
   // if operator == "+" then return num1+num2 , else if operator == "-" then return num1-num2 and so on....
   //   write your code here -->
+
+   var result = null;
+    if(operator == '+') {
+      result = num1 + num2;
+    }
+    else if (operator == '-') {
+      result = num1 - num2;
+      // this is now active
+    }
+
+    else if (operator == '*') {
+      result = num1 * num2;
+    }
+    else if( operator == '/') {
+      result = num1 / num2;
+    }
+
+    return result;
 }
 
 // ignore the function below
@@ -13,11 +31,13 @@ function performOperations() {
   var result = document.getElementById("result");
   var operator = document.getElementById("operator").value;
   // Check if the input values are valid.
-  if (isNaN(num1) || isNaN(num2)) {
+  if (num1 == "" || num2 == "") {
     result.textContent = "Please enter valid numbers!";
+    return;
   }
   if (operator === "") {
     result.textContent = "Please select an operator!";
+    return;
   }
   const res = calculate(parseFloat(num1), parseFloat(num2), operator);
   result.textContent = "Result is : " + res;
